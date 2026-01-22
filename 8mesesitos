@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="icon" type="image/png" href="1.JPG">
+  <title>Para la novia mas hermosa</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #FF70C6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Tahoma";
+      font-style: normal;
+      color: #000000;
+      cursor: pointer;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+      padding: 24px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    p {
+      margin-top: 10px;
+      opacity: 0.6;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+
+<body onclick="changeVibe()">
+  <div class="container">
+  <img id="vibeImage" src="1.jpeg" alt="vibe image" />
+  <h1 id="phrase">FELICES 8 MESESITOOOS AMOR <3 </h1>
+</div>
+
+
+<script>
+  const phrases = [
+    "Te amo mas de lo que pienso\n\n mi bebe preciosa\nestoy dispuesta a lo que necesites\nsoy toda tuya\nmi amor",
+    "Te convertiste en la persona que quiero tener a mi lado para toda la vida",
+    "Ya 8 mesesitos tan rapido que pasa el tiempo",
+    "´Después de todo, me alegro estar junto a ti´",
+    "Espero que los momentos junto a ti sean inolvidables para ambas.",
+    "¡Ay, amorcito! es enserio: ¡TE ADORO DEMASIADO! 🤍",
+    "Quedate a mi lado siempre, si?",
+    "Eres mi 11:11 de toda la vida, un deseo que no quiero que se acabe"
+  ];
+
+  const images = [
+    "1.JPG",
+    "2.jpeg",
+    "3.jpeg",
+    "4.jpeg",
+    "5.jpeg",
+    "6.jpg",
+    "7.JPG",
+    "8.jpeg"
+
+  ];
+
+  const phraseEl = document.getElementById("phrase");
+  const imageEl = document.getElementById("vibeImage");
+
+  // ESTADO INICIAL ESTÁ MOSTRANDO EL TEXTO
+  let showing = "text";
+  imageEl.style.display = "none";
+
+  function changeVibe() {
+    if (showing === "text") {
+      // ocultar el texto
+      phraseEl.style.display = "none";
+
+      // mostrar imagen
+      imageEl.src = images[Math.floor(Math.random() * images.length)];
+      imageEl.style.display = "block";
+
+      showing = "image";
+    } else {
+      // ocultar imagen
+      imageEl.style.display = "none";
+
+      // mostrar texto
+      phraseEl.textContent =
+        phrases[Math.floor(Math.random() * phrases.length)];
+      phraseEl.style.display = "block";
+
+      showing = "text";
+    }
+  }
+</script>
+</body>
+</html>
